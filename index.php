@@ -1,17 +1,18 @@
 <?php
-  //echo "PHP Social Network";
+  // This is the View to display data provided by the Controller
+  require_once "controller.php";
 
-  $dbHost = "localhost";
-  $dbUsername = "username";
-  $dbPassword = "password";
-  $dbDatabase = "php_social_db";
+  $controller = new Controller();
+  $status = $controller->checkDatabaseConnection();
+?>
 
-  try {
-    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbDatabase", $dbUsername, $dbPassword);
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    echo "++ Database connected successfully ++";
-  } catch(PDOException $e) {
-    echo "++ Connection failed: " . $e->getMessage();
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Database Connection Status</title>
+</head>
+<body>
+  <h1><?php echo $status; ?></h1>
+</body>
+</html>
