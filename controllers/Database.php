@@ -1,16 +1,16 @@
 <?php
   // Controller: handles the application logic and interacts with Model to get data
-  require_once "model.php";
+  require_once "models/DatabaseConnection.php";
 
-  class Controller {
-    private $db;
+  class DatabaseController {
+    private $database;
 
     public function __construct() {
-      $this->db = new Model();
+      $this->database = new DatabaseConnectionModel();
     }
 
     public function checkDatabaseConnection() {
-      if ($this->db->getConnection()) {
+      if ($this->database->getConnection()) {
         return "Connection is OK";
       } else {
         return "Connection failed";

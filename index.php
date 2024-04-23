@@ -1,9 +1,9 @@
 <?php
   // This is the View to display data provided by the Controller
-  require_once "controller.php";
+  require_once "controllers/Database.php";
 
-  $controller = new Controller();
-  $status = $controller->checkDatabaseConnection();
+  $database = new DatabaseController();
+  $dbConnectionStatus = $database->checkDatabaseConnection();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,6 @@
   <title>Database Connection Status</title>
 </head>
 <body>
-  <h1><?php echo $status; ?></h1>
+  <h1>Database Connection: <?php echo $dbConnectionStatus; ?></h1>
 </body>
 </html>
